@@ -1,0 +1,64 @@
+cabal-version: 2.4
+name:          hello
+version:       0.0.0
+synopsis:      :TODO:
+license:       BSD-2-Clause
+license-file:  LICENSE
+author:        Peter Jones <pjones@devalot.com>
+maintainer:    Peter Jones <pjones@devalot.com>
+copyright:     Copyright (c) 2022 Peter J. Jones
+homepage:      https://github.com/pjones/hello
+bug-reports:   https://github.com/pjones/hello/issues
+category:      System
+build-type:    Simple
+description:   :TODO:
+
+source-repository head
+  type:     git
+  location: https://github.com/pjones/hello.git
+
+common options
+  default-language: Haskell2010
+  ghc-options:
+    -Wall -Wno-name-shadowing -Werror=incomplete-record-updates
+    -Werror=incomplete-uni-patterns -Werror=missing-home-modules
+    -Widentities -Wmissing-export-lists -Wredundant-constraints
+
+common dependencies
+  build-depends:
+    , base    >=4.14 && <5
+    , relude  ^>=1.0
+
+  mixins:
+    base hiding (Prelude),
+    relude (Relude as Prelude)
+
+common extensions
+  default-extensions:
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    DerivingVia
+    FlexibleContexts
+    FlexibleInstances
+    GeneralizedNewtypeDeriving
+    LambdaCase
+    MultiParamTypeClasses
+    NamedFieldPuns
+    OverloadedLabels
+    OverloadedStrings
+    RecordWildCards
+    ScopedTypeVariables
+    StandaloneDeriving
+    TupleSections
+
+library
+  import:          options, dependencies, extensions
+  hs-source-dirs:  src
+  exposed-modules: Hello
+
+executable hello
+  import:         options, dependencies, extensions
+  build-depends:  hello
+  hs-source-dirs: app
+  main-is:        hello.hs

@@ -1,0 +1,26 @@
+name: analysis
+on:
+  pull_request:
+jobs:
+  check:
+    name: pre-merge-checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Haskell
+        id: setup-haskell-cabal
+        uses: haskell/actions/setup@v2
+
+      - name: Cabal Check
+        run: cabal check
+
+      - name: Set Up HLint
+        uses: haskell/actions/hlint-setup@v2
+
+      - name: Run HLint
+        uses: haskell/actions/hlint-run@v2
+        with:
+          path: ./
+          fail-on: warning

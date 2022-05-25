@@ -1,0 +1,6 @@
+cradle:
+  cabal:
+    - path: "./src"
+      component: "lib:hello"
+    - path: "./app"
+      component: "exe:hello"
