@@ -3,9 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    haskellrc.url = "github:pjones/haskellrc";
+    haskellrc.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, ... }:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       # The name of the Haskell package:
       packageName = "hello";
@@ -80,6 +83,7 @@
             haskellPackages.haskell-language-server
             haskellPackages.hlint
             haskellPackages.ormolu
+            inputs.haskellrc.packages.${system}.default
           ];
         };
       });
