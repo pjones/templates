@@ -1,0 +1,25 @@
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+[project]
+name = "some-python-project"
+description = "Template for Python projects"
+version = "0.0.1"
+authors = [{ name = "Peter J. Jones", email = "peter@jonesbunch.com" }]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = []
+classifiers = []
+requires-python = ">=3.10"
+dependencies = [
+  "pandas == 2.2.*"
+]
+
+[project.urls]
+Homepage = "https://example.com"
+
+[project.scripts]
+some-python-app = "some_python_project.cli:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
