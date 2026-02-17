@@ -8,3 +8,12 @@ insert_final_newline = true
 
 # Too many existing files with bad whitespace hygiene:
 trim_trailing_whitespace = false
+
+[src/openms/source/ANALYSIS/MAPMATCHING/PIPECHO/*.{h,cpp}]
+trim_trailing_whitespace = true
+
+[src/openms/include/OpenMS/ANALYSIS/MAPMATCHING/PipEchoAlgorithm.h]
+trim_trailing_whitespace = true
+
+[src/openms/source/ANALYSIS/MAPMATCHING/PipEchoAlgorithm.cpp]
+trim_trailing_whitespace = true
